@@ -1,0 +1,215 @@
+#site-canvas {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateX(0);
+    transition: .3s ease all;
+    background: white;
+}
+
+#site-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+#site-menu {
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -30%;
+    z-index: 500;
+}
+
+#site-menu.show-nav {
+    transform: translateX(30%);
+    transition: .3s ease all;
+}
+
+#site-menu.hide-nav {
+    transform: translateX(0);
+    transition: .3s ease all;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.compactMenu {
+    padding: 1rem;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* transition: all .5s ease-in; */
+}
+
+.expandedMenu {
+    position: fixed;
+    height: 100%;
+    min-width: 30%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    background: #91989F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s ease-in;
+}
+
+.expandedMenu>* {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(48, 45, 45, 0.8);
+    border-bottom: 1px solid rgba(48, 45, 45, 0.8);
+}
+
+.expandedMenu>*>* {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+li {
+    list-style-type: none;
+}
+
+.activeSetting {
+    font: red;
+    background: grey;
+}
+
+body {
+    /* font-size: 14px; */
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    height: 10%;
+}
+
+.header>* {
+    height: 100%;
+}
+
+.progressbar-container {
+    background: rgba(48, 45, 45, 0.8);
+    width: 100%;
+    height: 100%;
+}
+
+.progressbar-progress {
+    background: #91989F;
+    height: 100%;
+}
+
+.container {
+    height: 100vh;
+    /* margin: 0 auto;s */
+}
+
+.main-layout {
+    height: 100%;
+    /* border: 1px solid rgba(48, 45, 45, 0.1); */
+}
+
+.container,
+.main-layout {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(48, 45, 45, 0.15);
+}
+
+.questionContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.questionContainer>* {
+    height: 33.3%;
+    align-items: stretch;
+    align-content: space-around;
+    display: flex;
+    justify-content: center;
+}
+
+.questionContainer>*>* {
+    text-align: center;
+    border: 1px solid rgba(48, 45, 45, 0.3);
+}
+
+.choices {
+    background: rgba(48, 45, 45, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: stretch;
+    height: 100%;
+}
+
+.choices>*:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.question {
+    align-items: center;
+}
+
+div[class*="option-"] {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.answer {
+    align-items: center;
+}
+
+body {
+    font-size: 20px;
+}
+
+:root {
+    font-size: 20px;
+}
+
+@media (min-width: 600px) and (max-width: 1800px) {
+     :root {
+        font-size: calc( 6px + (30 - 6) * ( (100vw - 600px) / (1800 - 600)));
+    }
+}
+
+@media (min-width: 1800px) {
+     :root {
+        font-size: 30px;
+    }
+}
