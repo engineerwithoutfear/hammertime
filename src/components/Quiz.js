@@ -2,7 +2,7 @@ import React from 'react';
 
 const Quiz = (props) => (
     <div className="questionContainer">
-        <div className="question">Question: {props.question}
+        <div className="question">{props.question}
         </div>
         <div className="choices">
 
