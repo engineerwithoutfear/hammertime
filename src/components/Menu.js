@@ -4,13 +4,12 @@ import FontAwesome from 'react-fontawesome'
 import '../css/fa/css/font-awesome.min.css'
 
 class Menu extends Component {
-    // constructor(props) {     super(props); }
     render() {
         let menu;
         if (this.props.menuOpen) {
             menu = <nav className="expandedMenu">
                 <div>
-                    <Link to='/' onClick={this.props.toggleMenu} className="navLink">X</Link>
+                    <Link to='/' onClick={this.props.toggleMenu} className="navLink">home</Link>
                 </div>
                 <div>
                     <Link to='/about'>about</Link>

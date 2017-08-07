@@ -2,54 +2,62 @@ import React from 'react';
 
 const Settings = (props) => (
 
-    <div >
-        <h1>Settings</h1>
-        <div >Question Progression:
-            <div onClick={props.toggleMode}>
-                <div
-                    className={props.mode === "orderly"
-                    ? "activeSetting"
-                    : ""}>In Order</div>
-
-                <div
-                    className={props.mode === "random"
-                    ? "activeSetting"
-                    : ""}>Random</div>
-            </div>
+    <div className="settings-container">
+        <div className="settings-title">
+            <h1>Settings</h1>
         </div>
-        <div>Exam:
+        <div className="setting">
+            <div className="setting-description">Exam:</div>
             <div
                 data-exam="technician"
                 onClick={props.toggleExam}
-                className={props.exam === "technician"
-                ? "activeSetting"
-                : ""}>Technician</div>
+                className=
+                {props.exam === "technician" ? "activeSetting setting-option" : "setting-option"}>Technician</div>
             <div
                 data-exam="general"
                 onClick={props.toggleExam}
                 className={props.exam === "general"
-                ? "activeSetting"
-                : ""}>General</div>
+                ? "activeSetting setting-option"
+                : "setting-option"}>General</div>
             <div
                 data-exam="extra"
                 onClick={props.toggleExam}
                 className={props.exam === "extra"
-                ? "activeSetting"
-                : ""}>Extra</div>
+                ? "activeSetting setting-option"
+                : "setting-option"}>Extra</div>
         </div>
-        <div>Progress Indicator:
+        <div className="setting">
+            <div className="setting-description">Question Progression:</div>
+
+            <div
+                onClick={props.toggleMode}
+                className={props.mode === "orderly"
+                ? "activeSetting setting-option"
+                : "setting-option"}>In Order</div>
+
+            <div
+                onClick={props.toggleMode}
+                className={props.mode === "random"
+                ? "activeSetting setting-option"
+                : "setting-option"}>Random</div>
+
+        </div>
+
+        <div className="setting">
+            <div className="setting-description">Progress Indicator:</div>
             <div
                 onClick={props.toggleDisplayProgressIndicator}
                 className={props.displayProgressIndicator === true
-                ? "activeSetting"
-                : ""}>On</div>
+                ? "activeSetting setting-option"
+                : "setting-option"}>On</div>
             <div
                 onClick={props.toggleDisplayProgressIndicator}
                 className={props.displayProgressIndicator === false
-                ? "activeSetting"
-                : ""}>Off</div>
+                ? "activeSetting setting-option"
+                : "setting-option"}>Off</div>
         </div>
     </div>
+
 )
 
 export default Settings

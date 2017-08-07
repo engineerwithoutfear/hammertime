@@ -30,7 +30,7 @@ class Container extends Component {
             answer: dataset.questions[i].answer,
             message: "",
             displayProgressIndicator: true,
-            menuOpen: true,
+            menuOpen: false,
             subMenuOpen: false
         };
         this.click = this

@@ -1,3 +1,70 @@
+.about-container {
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
+
+.normal-link:hover {
+    text-decoration: underline;
+}
+
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+    max-width: 90%;
+    margin: 0 auto;
+    /* border: 1px solid black; */
+}
+
+.activeSetting.setting-option {
+    /* font: red; */
+    background: grey;
+}
+
+.setting {
+    width: 100%;
+}
+
+.setting>div {
+    height: 100%;
+    /* background: rgba(black, .4) */
+    /* background: red; */
+}
+
+.setting>*>* {
+    background: green;
+}
+
+.setting,
+.setting>*,
+.setting>*>* {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.setting-option {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(48, 45, 45, 0.3);
+    border-top: 1px solid rgba(48, 45, 45, 0.3);
+}
+
+.setting-description {
+    min-width: 40%;
+    background: rgba(48, 45, 45, 0.3);
+    border-top: 1px solid grey;
+}
+
 #site-canvas {
     width: 100%;
     height: 100%;
@@ -24,12 +91,12 @@
 
 #site-menu.show-nav {
     transform: translateX(30%);
-    transition: .3s ease all;
+    /* transition: .3s ease all; */
 }
 
 #site-menu.hide-nav {
     transform: translateX(0);
-    transition: .3s ease all;
+    /* transition: .3s ease all; */
 }
 
 html {
@@ -70,7 +137,7 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: all .5s ease-in;
+    /* transition: all .5s ease-in; */
 }
 
 .expandedMenu>* {
@@ -92,11 +159,6 @@ a {
 
 li {
     list-style-type: none;
-}
-
-.activeSetting {
-    font: red;
-    background: grey;
 }
 
 body {
