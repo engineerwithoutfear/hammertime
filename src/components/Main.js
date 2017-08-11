@@ -6,7 +6,7 @@ import Quiz from './Quiz'
 import '../css/main.css'
 
 const Main = (props) => (
-    <div className="main-layout">
+    <div className="main-island">
         <Switch >
             <Route
                 exact

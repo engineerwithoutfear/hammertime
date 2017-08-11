@@ -2,13 +2,19 @@ import React, {Component} from 'react';
 import Menu from './Menu'
 import Main from './Main'
 import Header from './Header'
-import dataset from '../assets/json/qs_technician'
+import ExpandedMenu from './ExpandedMenu'
+import examTechnician from '../assets/json/qs_technician'
+import examGeneral from '../assets/json/qs_general'
+import examExtra from '../assets/json/qs_extra'
 import '../css/main.css'
+
+// reset index on exam change and also the progress
 
 class Container extends Component {
     constructor(props) {
         super(props);
         var i = 0;
+        let dataset = examGeneral;
         this.state = {
             mode: "orderly",
             uniqueRandoms: [],
@@ -19,8 +25,8 @@ class Container extends Component {
             total: dataset.questions.length,
             percent: 0,
             index: i,
-            exam: "technician",
             data: dataset,
+            exam: "technician",
             question: dataset.questions[i].question,
             questions: dataset.questions,
             a: dataset.questions[i].choices.a,
@@ -33,9 +39,7 @@ class Container extends Component {
             menuOpen: false,
             subMenuOpen: false
         };
-        this.click = this
-            .click
-            .bind(this);
+
         this.handleGuess = this
             .handleGuess
             .bind(this);
@@ -51,6 +55,9 @@ class Container extends Component {
         this.toggleMenu = this
             .toggleMenu
             .bind(this)
+        this.changeQuestionPool = this
+            .changeQuestionPool
+            .bind(this)
     }
     toggleMenu() {
         this.setState({
@@ -58,10 +65,28 @@ class Container extends Component {
         })
     }
     toggleExam(e) {
+        let newExam = e.target.dataset.exam;
         this.setState({
-            exam: (e.target.dataset.exam)
-        })
+            exam: newExam
+        }, this.changeQuestionPool)
 
+    }
+    changeQuestionPool() {
+        let newExam;
+        if (this.state.exam === "technician") {
+            newExam = examTechnician
+        } else if (this.state.exam === "general") {
+            newExam = examGeneral
+        } else {
+            newExam = examExtra
+        }
+        this.setState({
+            questions: newExam.questions,
+            index: 0,
+            data: newExam,
+            total: newExam.questions.length
+        }, this.update)
+        // console.log(this.state.data.questions[0])
     }
     toggleDisplayProgressIndicator() {
         this.setState({
@@ -74,7 +99,8 @@ class Container extends Component {
         this.setState({
             mode: (this.state.mode == "orderly"
                 ? "random"
-                : "orderly")
+                : "orderly"),
+            completed: 0
         })
     }
     fetchRandomIndex() {
@@ -180,7 +206,9 @@ class Container extends Component {
         }
         return (
             <div id="site-wrapper">
+
                 <div id="site-canvas">
+                    <ExpandedMenu {...this.state} toggleMenu={this.toggleMenu} class={className}/>
                     <div className="container" onClick={action}>
                         <Header {...this.state} toggleMenu={this.toggleMenu}/>
                         <Main

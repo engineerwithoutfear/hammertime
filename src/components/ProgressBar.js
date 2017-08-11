@@ -8,9 +8,9 @@ class ProgressBar extends Component {
         };
         return (
             <div className={"progressbar-container"}>
-                <div className="progressbar-progress" style={style}>
-                    {this.props.completed + "/" + this.props.total}
-                </div>
+                <div className="progressbar-progress" style={style}></div>
+                <div className="progressbar-text">
+                    {this.props.completed + "/" + this.props.total}</div>
             </div>
         );
     }
